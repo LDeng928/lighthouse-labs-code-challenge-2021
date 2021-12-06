@@ -15,11 +15,10 @@ const timeRemaining = (launchDate, missionName, fakeToday) => {
 
     // Calculate the mission date
     let launch = new Date(launchDate);
-    let month = launch.getUTCMonth() + 1;
+
     let date = launch.getUTCDate();
     
     // Calculate today's date
-    let todayMonth = new Date(today).getUTCMonth() + 1;
     let todayDate = new Date(today).getUTCDate();
     
     // Calculate how many days left until mission
