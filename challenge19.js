@@ -1,4 +1,5 @@
-/* Your task is to write a function that will take in a list of data entries in the shape of an array of objects. The function will then organize and return the entries by type and store each bit of data (string) in each list, in the shape of an object containing arrays. */
+/* Your task is to write a function that will take in a list of data entries in the shape of an array of objects. 
+The function will then organize and return the entries by type and store each bit of data (string) in each list, in the shape of an object containing arrays. */
 
 const listOfReceivedData = [
   { type: 'astro', data: 'Saturn Data' },
@@ -10,19 +11,17 @@ const listOfReceivedData = [
 ];
 
 const organizeData = (receivedData) => {
-  // Code here!
-
   // Create a keys array from one of the object
   const keys = Object.keys(receivedData[0]);
 
-  // Use the reduce function to group each object that has the type key-pair values and push the object data into a new array
+  // Use the reduce function to group each object that has the same type key-pair values and push the object data into a new array
   return receivedData.reduce((accumulated, object) => {
     console.log(object);
     let type = keys[0];
     let data = keys[1];
 
     if (!accumulated[object[type]]) {
-      accumulated[object.type] = [];
+      accumulated[object[type]] = [];
     }
     accumulated[object[type]].push(object[data]);
     return accumulated;
