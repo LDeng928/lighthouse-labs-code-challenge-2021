@@ -15,6 +15,12 @@ const listOfChoices = [
   'Chicken',
   'Chicken',
   'Chicken',
+  'Crab Cake',
+  'Crab Cake',
+  'Crab Cake',
+  'Crab Cake',
+  'Crab Cake',
+  'Crab Cake',
 ];
 
 // Utility function to calculate the frequency of an element in a array using Array.reduce
@@ -28,23 +34,26 @@ const calculate_frequency = (allChoices, choice) => {
 };
 
 const chooseLunchWinner = (listOfChoices) => {
-  //Code here!
-  maxElement = '';
+  // Initialize a global element to keep
+  maxEl = '';
 
-  let countObject = listOfChoices.reduce(calculate_frequency, {});
+  // Create the object for the lunch choice
+  const countObject = listOfChoices.reduce(calculate_frequency, {});
 
   // Generate the keys array
   const keys = Object.keys(countObject);
 
   // Loop through the keys array and find the maxElement
-  for (let i = 0; i < keys.length; i++) {
-    if (countObject[keys[i]] > countObject[keys[i + 1]]) {
-      maxElement = keys[i];
-    } else {
-      maxElement = keys[i + 1];
+  keys.map((key, index) => {
+    maxCount = countObject[key];
+    maxElement = keys[index];
+
+    if (countObject[maxElement] == maxCount) {
+      maxEl = maxElement;
     }
-    return maxElement;
-  }
+  });
+
+  return maxEl;
 };
 
-console.log(chooseLunchWinner(listOfChoices)); // => Stale Bread
+console.log(chooseLunchWinner(listOfChoices)); // => Crab Cake
