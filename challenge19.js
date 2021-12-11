@@ -11,19 +11,12 @@ const listOfReceivedData = [
 ];
 
 const organizeData = (receivedData) => {
-  // Create a keys array from one of the object
-  const keys = Object.keys(receivedData[0]);
-
   // Use the reduce function to group each object that has the same type key-pair values and push the object data into a new array
   return receivedData.reduce((accumulated, object) => {
-    console.log(object);
-    let type = keys[0];
-    let data = keys[1];
-
-    if (!accumulated[object[type]]) {
-      accumulated[object[type]] = [];
+    if (!accumulated[object.type]) {
+      accumulated[object.type] = [];
     }
-    accumulated[object[type]].push(object[data]);
+    accumulated[object.type].push(object.data);
     return accumulated;
   }, {});
 };
